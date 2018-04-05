@@ -14,6 +14,7 @@ TABLE OF CONTENTS:
 		1.2.1 Headline Feature
 		1.2.2 Features Section
 		1.2.3 Changelog Section
+	1.3 Credits Panel
 2.0 Dashicons
 	2.1 Top level menus
 	2.2 Settings - Components
@@ -43,27 +44,11 @@ TABLE OF CONTENTS:
 	content: "\f448";
 }
 
-.about-wrap .bp-badge {
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.index_page_bp-credits code,
+.settings_page_bp-credits code,
 .index_page_bp-about code {
 	background-color: #e0e0e0;
 	color: #636363;
 	font-size: 1em;
-}
-
-@media only screen and (max-width: 500px) {
-
-	.about-wrap .bp-badge {
-		position: relative;
-		margin: 10px auto;
-		top: auto;
-		right: auto;
-	}
 }
 
 /*
@@ -435,6 +420,128 @@ TABLE OF CONTENTS:
 	.buddypress .bp-features-section p {
 		margin-left: 0;
 		text-align: left;
+	}
+}
+
+
+/*
+ * 1.3 Credits Panel
+ *
+ * Taken from WP 4.9.5.
+ */
+.bp-about-wrap {
+	position: relative;
+	max-width: 1050px;
+	font-size: 15px;
+}
+
+.bp-about-wrap img {
+	margin: 0;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+.bp-about-wrap p {
+	line-height: 1.5;
+	font-size: 14px;
+}
+
+.bp-about-wrap h2 {
+	margin: 40px 0 .6em;
+	font-size: 2.7em;
+	line-height: 1.3;
+	font-weight: 300;
+	text-align: center;
+}
+
+.bp-about-wrap h3 {
+	margin: 1.25em 0 .6em;
+	font-size: 1.4em;
+	line-height: 1.5;
+}
+
+.bp-about-wrap code {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.bp-about-wrap .about-description {
+	margin-top: 1.4em;
+	font-weight: 400;
+	line-height: 1.6em;
+	font-size: 19px;
+}
+
+.bp-about-wrap h3.wp-people-group {
+	margin: 2.6em 0 1.33em;
+	padding: 0;
+	font-size: 16px;
+	line-height: inherit;
+}
+
+.bp-about-wrap .wp-people-group {
+	padding: 0 5px;
+	margin: 0 -15px 0 -5px;
+}
+
+.bp-about-wrap .compact {
+	margin-bottom: 0;
+}
+
+.bp-about-wrap .wp-person {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 10px;
+	padding-bottom: 15px;
+	height: 70px;
+	width: 280px;
+}
+
+.bp-about-wrap .compact .wp-person {
+	height: auto;
+	width: 180px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.bp-about-wrap .wp-person .gravatar {
+	float: left;
+	margin: 0 10px 10px 0;
+	padding: 1px;
+	width: 60px;
+	height: 60px;
+}
+
+.bp-about-wrap .compact .wp-person .gravatar {
+	width: 30px;
+	height: 30px;
+}
+
+.bp-about-wrap .wp-person .web {
+	margin: 6px 0 2px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 2em;
+	text-decoration: none;
+}
+
+.bp-about-wrap .wp-person .title {
+	display: block;
+}
+
+.bp-about-wrap p.wp-credits-list a {
+	white-space: nowrap;
+}
+
+@media only screen and (max-width:500px) {
+	.bp-about-wrap {
+		margin-right: 20px;
+		margin-left: 10px;
+	}
+
+	.bp-about-wrap .bp-about-wrap h1 {
+		margin-right: 0;
 	}
 }
 

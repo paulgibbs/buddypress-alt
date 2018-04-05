@@ -201,18 +201,9 @@ class BP_Admin {
 		add_dashboard_page(
 			__( 'Welcome to BuddyPress',  'buddypress' ),
 			__( 'Welcome to BuddyPress',  'buddypress' ),
-			'manage_options',
+			$this->capability,
 			'bp-about',
 			array( $this, 'about_screen' )
-		);
-
-		// Credits.
-		add_dashboard_page(
-			__( 'Welcome to BuddyPress',  'buddypress' ),
-			__( 'Welcome to BuddyPress',  'buddypress' ),
-			'manage_options',
-			'bp-credits',
-			array( $this, 'credits_screen' )
 		);
 
 		$hooks = array();
@@ -262,6 +253,16 @@ class BP_Admin {
 			$this->capability,
 			'bp-settings',
 			'bp_core_admin_settings'
+		);
+
+		// Credits.
+		$hooks[] = add_submenu_page(
+			$this->settings_page,
+			__( 'BuddyPress Credits', 'buddypress' ),
+			__( 'BuddyPress Credits', 'buddypress' ),
+			$this->capability,
+			'bp-credits',
+			array( $this, 'credits_screen' )
 		);
 
 		// For consistency with non-Multisite, we add a Tools menu in
@@ -514,6 +515,7 @@ class BP_Admin {
 		// Settings pages.
 		remove_submenu_page( $this->settings_page, 'bp-page-settings' );
 		remove_submenu_page( $this->settings_page, 'bp-settings'      );
+		remove_submenu_page( $this->settings_page, 'bp-credits'       );
 
 		// Network Admin Tools.
 		remove_submenu_page( 'network-tools', 'network-tools' );
@@ -545,8 +547,6 @@ class BP_Admin {
 		<div class="wrap about-wrap">
 
 			<?php self::welcome_text(); ?>
-
-			<?php self::tab_navigation( __METHOD__ ); ?>
 
 			<?php if ( self::is_new_install() ) : ?>
 
@@ -696,11 +696,11 @@ class BP_Admin {
 	public function credits_screen() {
 	?>
 
-		<div class="wrap about-wrap">
+		<div class="wrap bp-about-wrap">
 
-			<?php self::welcome_text(); ?>
+		<h1><?php _e( 'BuddyPress Settings', 'buddypress' ); ?> </h1>
 
-			<?php self::tab_navigation( __METHOD__ ); ?>
+		<h2 class="nav-tab-wrapper"><?php bp_core_admin_tabs( __( 'Credits', 'buddypress' ) ); ?></h2>
 
 			<p class="about-description"><?php _e( 'BuddyPress is created by a worldwide network of friendly folks like these.', 'buddypress' ); ?></p>
 
@@ -905,27 +905,6 @@ class BP_Admin {
 		<div class="bp-badge"></div>
 
 		<?php
-	}
-
-	/**
-	 * Output tab navigation for `What's New` and `Credits` pages.
-	 *
-	 * @since 2.2.0
-	 *
-	 * @param string $tab Tab to highlight as active.
-	 */
-	public static function tab_navigation( $tab = 'whats_new' ) {
-	?>
-
-		<h2 class="nav-tab-wrapper">
-			<a class="nav-tab <?php if ( 'BP_Admin::about_screen' === $tab ) : ?>nav-tab-active<?php endif; ?>" href="<?php echo esc_url( bp_get_admin_url( add_query_arg( array( 'page' => 'bp-about' ), 'index.php' ) ) ); ?>">
-				<?php esc_html_e( 'What&#8217;s New', 'buddypress' ); ?>
-			</a><a class="nav-tab <?php if ( 'BP_Admin::credits_screen' === $tab ) : ?>nav-tab-active<?php endif; ?>" href="<?php echo esc_url( bp_get_admin_url( add_query_arg( array( 'page' => 'bp-credits' ), 'index.php' ) ) ); ?>">
-				<?php esc_html_e( 'Credits', 'buddypress' ); ?>
-			</a>
-		</h2>
-
-	<?php
 	}
 
 	/** Emails ****************************************************************/

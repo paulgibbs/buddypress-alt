@@ -43,27 +43,11 @@ TABLE OF CONTENTS:
 	content: "\f448";
 }
 
-.about-wrap .bp-badge {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.index_page_bp-credits code,
+.settings_page_bp-credits code,
 .index_page_bp-about code {
 	background-color: #e0e0e0;
 	color: #636363;
 	font-size: 1em;
-}
-
-@media only screen and (max-width: 500px) {
-
-	.about-wrap .bp-badge {
-		position: relative;
-		margin: 10px auto;
-		top: auto;
-		left: auto;
-	}
 }
 
 /*
