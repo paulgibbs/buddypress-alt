@@ -155,8 +155,8 @@ class BP_Admin {
 		// Add settings.
 		add_action( 'bp_register_admin_settings', array( $this, 'register_admin_settings' ) );
 
-		// Add a link to BuddyPress About page to the admin bar.
-		add_action( 'admin_bar_menu', array( $this, 'admin_bar_about_link' ), 15 );
+		// Add a link to BuddyPress Hello to the admin bar.
+		add_action( 'admin_bar_menu', array( $this, 'admin_bar_about_link' ), 100 );
 
 		// Add a description of new BuddyPress tools in the available tools page.
 		add_action( 'tool_box',            'bp_core_admin_available_tools_intro' );
@@ -465,21 +465,27 @@ class BP_Admin {
 	}
 
 	/**
-	 * Add a link to BuddyPress About page to the admin bar.
+	 * Add a link to BuddyPress Hello to the admin bar.
 	 *
 	 * @since 1.9.0
+	 * @since 3.0.0 Hooked at priority 100 (was 15).
 	 *
-	 * @param WP_Admin_Bar $wp_admin_bar As passed to 'admin_bar_menu'.
+	 * @param WP_Admin_Bar $wp_admin_bar
 	 */
 	public function admin_bar_about_link( $wp_admin_bar ) {
-		if ( is_user_logged_in() ) {
-			$wp_admin_bar->add_menu( array(
-				'parent' => 'wp-logo',
-				'id'     => 'bp-about',
-				'title'  => esc_html__( 'About BuddyPress', 'buddypress' ),
-				'href'   => add_query_arg( array( 'page' => 'bp-about' ), bp_get_admin_url( 'index.php' ) ),
-			) );
+		if ( ! is_user_logged_in() ) {
+			return;
 		}
+
+		$wp_admin_bar->add_menu( array(
+			'parent' => 'wp-logo',
+			'id'     => 'bp-about',
+			'title'  => esc_html_x( 'Hello, BuddyPress!', 'Colloquial alternative to "learn about BuddyPress"', 'buddypress' ),
+			'href'   => bp_get_admin_url( '?hello=buddypress' ),
+			'meta'   => array(
+				'class' => 'say-hello-buddypress',
+			),
+		) );
 	}
 
 	/**
@@ -544,142 +550,7 @@ class BP_Admin {
 	public function about_screen() {
 	?>
 
-		<div class="wrap about-wrap">
-
-			<?php self::welcome_text(); ?>
-
-			<?php if ( self::is_new_install() ) : ?>
-
-				<div id="welcome-panel" class="welcome-panel">
-					<div class="welcome-panel-content">
-						<h3 style="margin:0;"><?php _e( 'Getting Started with BuddyPress', 'buddypress' ); ?></h3>
-						<div class="welcome-panel-column-container">
-							<div class="welcome-panel-column">
-								<h4><?php _e( 'Configure BuddyPress', 'buddypress' ); ?></h4>
-								<ul>
-									<li><?php printf(
-									'<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Set Up Components', 'buddypress' ) . '</a>', esc_url( bp_get_admin_url( add_query_arg( array( 'page' => 'bp-components' ), $this->settings_page ) ) )
-									); ?></li>
-									<li><?php printf(
-									'<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Assign Components to Pages', 'buddypress' ) . '</a>', esc_url( bp_get_admin_url( add_query_arg( array( 'page' => 'bp-page-settings' ), $this->settings_page ) ) )
-									); ?></li>
-									<li><?php printf(
-									'<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Customize Settings', 'buddypress' ) . '</a>', esc_url( bp_get_admin_url( add_query_arg( array( 'page' => 'bp-settings' ), $this->settings_page ) ) )
-									); ?></li>
-								</ul>
-								<a class="button button-primary button-hero" style="margin-bottom:20px;margin-top:0;" href="<?php echo esc_url( bp_get_admin_url( add_query_arg( array( 'page' => 'bp-components' ), $this->settings_page ) ) ); ?>"><?php _e( 'Get Started', 'buddypress' ); ?></a>
-							</div>
-							<div class="welcome-panel-column">
-								<h4><?php _e( 'Administration Tools', 'buddypress' ); ?></h4>
-								<ul>
-									<?php if ( bp_is_active( 'members' ) ) : ?>
-										<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add User Profile Fields', 'buddypress' ) . '</a>', esc_url( add_query_arg( array( 'page' => 'bp-profile-setup' ), bp_get_admin_url( 'users.php' ) ) ) ); ?></li>
-									<?php endif; ?>
-									<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Manage User Signups', 'buddypress' ) . '</a>', esc_url( add_query_arg( array( 'page' => 'bp-signups' ), bp_get_admin_url( 'users.php' ) ) ) ); ?></li>
-									<?php if ( bp_is_active( 'activity' ) ) : ?>
-										<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Moderate Activity Streams', 'buddypress' ) . '</a>', esc_url( add_query_arg( array( 'page' => 'bp-activity' ), bp_get_admin_url( 'admin.php' ) ) ) ); ?></li>
-									<?php endif; ?>
-									<?php if ( bp_is_active( 'groups' ) ) : ?>
-										<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Manage Groups', 'buddypress' ) . '</a>', esc_url( add_query_arg( array( 'page' => 'bp-groups' ), bp_get_admin_url( 'admin.php' ) ) ) ); ?></li>
-									<?php endif; ?>
-									<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Repair Data', 'buddypress' ) . '</a>', esc_url( add_query_arg( array( 'page' => 'bp-tools' ), bp_get_admin_url( 'tools.php' ) ) ) ); ?>
-									</li>
-								</ul>
-							</div>
-							<div class="welcome-panel-column welcome-panel-last">
-								<h4><?php _e( 'Community and Support', 'buddypress'  ); ?></h4>
-								<p class="welcome-icon welcome-learn-more" style="margin-right:10px"><?php _e( 'Looking for help? The <a href="https://codex.buddypress.org/">BuddyPress Codex</a> has you covered.', 'buddypress' ) ?></p>
-								<p class="welcome-icon welcome-learn-more" style="margin-right:10px"><?php _e( 'Can&#8217;t find what you need? Stop by <a href="https://buddypress.org/support/">our support forums</a>, where active BuddyPress users and developers are waiting to share tips and more.', 'buddypress' ) ?></p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			<?php endif; ?>
-
-			<div class="bp-features-section">
-
-				<h3 class="headline-title"><?php esc_html_e( 'For Developers &amp; Site Builders', 'buddypress' ); ?></h3>
-
-				<div class="bp-feature">
-					<span class="dashicons dashicons-groups" aria-hidden="true"></span>
-					<h4 class="feature-title"><?php esc_html_e( 'Edit Group Slug', 'buddypress' ); ?></h4>
-					<p><?php esc_html_e( 'Allow administrators to change group names and permalinks. Navigate to the Groups screen in the wp-admin dashboard, click on the Edit link under the Group name, and adjust as needed.', 'buddypress' ); ?></p>
-				</div>
-
-				<div class="bp-feature opposite">
-					<span class="dashicons dashicons-admin-users" aria-hidden="true"></span>
-					<h4 class="feature-title"><?php esc_html_e( 'Improve accessibility of Extended Profile Fields', 'buddypress' ); ?></h4>
-					<p><?php esc_html_e( 'Related form fields are grouped together in fieldsets and all interactive form controls are associated with necessary ARIA states and properties.', 'buddypress' ); ?></p>
-				</div>
-
-				<div class="bp-feature">
-					<span class="dashicons dashicons-email" aria-hidden="true"></span>
-					<h4 class="feature-title"><?php esc_html_e( 'Send group invitation only once per user', 'buddypress' ); ?></h4>
-					<p><?php esc_html_e( 'Prevent duplicate group invitations from being sent to a user by double-checking if a group invitation has already been sent to that user.', 'buddypress' ); ?></p>
-				</div>
-
-				<div class="bp-feature opposite">
-					<span class="dashicons dashicons-testimonial" aria-hidden="true"></span>
-					<h4 class="feature-title"><?php esc_html_e( 'Tooltips Usable for All Devices', 'buddypress' ); ?></h4>
-
-					<p><?php esc_html_e( 'Replaced HTML title attributes with tooltips which provide additional information and visual cues where needed on mouse hover and keyboard focus events.', 'buddypress' );
-					?></p>
-				</div>
-
-			</div>
-
-			<div class="bp-changelog-section">
-
-				<h3 class="changelog-title"><?php esc_html_e( 'More under the hood &#8230;', 'buddypress' ); ?></h3>
-				<div class="bp-changelog bp-three-column">
-					<div class="bp-column">
-						<h4 class="title"><?php esc_html_e( 'Better support for private message thread links in emails', 'buddypress' ); ?></h4>
-						<p><?php esc_html_e( 'Redirect non-authenticated users to the login screen and authenticated users to the message linked.', 'buddypress' ); ?></p>
-					</div>
-					<div class="bp-column">
-						<h4 class="title"><?php esc_html_e( 'Compatibility with Bootstrap themes', 'buddypress' ); ?></h4>
-						<p><?php esc_html_e( 'Removed issues with BuddyPress-generated content being hidden in the Groups loop and Activity comments in Bootstrap themes.', 'buddypress' ); ?></p>
-					</div>
-
-					<div class="bp-column">
-						<h4 class="title"><?php esc_html_e( 'Improve profile image uploads', 'buddypress' ); ?></h4>
-						<p><?php esc_html_e( 'Fixed issues with uploading in iOS Safari and uploading files with non-ASCII filenames.', 'buddypress' ); ?></p>
-					</div>
-				</div>
-
-				<div class="bp-changelog bp-three-column">
-					<div class="bp-column">
-						<h4 class="title"><?php esc_html_e( 'URL compatibility for LightSpeed Servers', 'buddypress' ); ?></h4>
-						<p><?php
-								/* translators: %s: trailingslashit() */
-								printf( __( 'Audited and changed template link functions to use %s where necessary.', 'buddypress' ),
-								'<code>trailingslashit()</code>' );
-						?></p>
-					</div>
-					<div class="bp-column">
-						<h4 class="title"><?php esc_html_e( 'Template Packs UI in BuddyPress > Settings.', 'buddypress' ); ?></h4>
-						<p><?php esc_html_e( 'Register your new BuddyPress theme package and allow the user to select which template pack to use.', 'buddypress' ); ?></p>
-					</div>
-
-					<div class="bp-column">
-						<h4 class="title"><?php
-								/* translators: %s: bp_group_link() */
-								printf( __( 'New template function %s', 'buddypress' ),
-								'<code>bp_group_link()</code>' );
-						?></h4>
-						<p><?php esc_html_e( 'Output a group name as a text hyperlink where appropriate.', 'buddypress' ); ?></p>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="bp-assets">
-				<p><?php _ex( 'Learn more:', 'About screen, website links', 'buddypress' ); ?> <a href="https://buddypress.org/blog/"><?php _ex( 'News', 'About screen, link to project blog', 'buddypress' ); ?></a> &bullet; <a href="https://buddypress.org/support/"><?php _ex( 'Support', 'About screen, link to support site', 'buddypress' ); ?></a> &bullet; <a href="https://codex.buddypress.org/"><?php _ex( 'Documentation', 'About screen, link to documentation', 'buddypress' ); ?></a> &bullet; <a href="https://bpdevel.wordpress.com/"><?php _ex( 'Development Blog', 'About screen, link to development blog', 'buddypress' ); ?></a></p>
-
-				<p><?php _ex( 'Twitter:', 'official Twitter accounts:', 'buddypress' ); ?> <a href="https://twitter.com/buddypress/"><?php _ex( 'BuddyPress', '@buddypress twitter account name', 'buddypress' ); ?></a> &bullet; <a href="https://twitter.com/bptrac/"><?php _ex( 'Trac', '@bptrac twitter account name', 'buddypress' ); ?></a> &bullet; <a href="https://twitter.com/buddypressdev/"><?php _ex( 'Development', '@buddypressdev twitter account name', 'buddypress' ); ?></a></p>
-			</div>
-
+		<div class="wrap">
 		</div>
 
 		<?php
@@ -872,37 +743,6 @@ class BP_Admin {
 			</p>
 
 		</div>
-
-		<?php
-	}
-
-	/**
-	 * Output welcome text and badge for What's New and Credits pages.
-	 *
-	 * @since 2.2.0
-	 */
-	public static function welcome_text() {
-
-		// Switch welcome text based on whether this is a new installation or not.
-		$welcome_text = ( self::is_new_install() )
-			? __( 'Thank you for installing BuddyPress! BuddyPress adds community features to WordPress. Member Profiles, Activity Streams, Direct Messaging, Notifications, and more!', 'buddypress' )
-			: __( 'Thank you for updating! BuddyPress %s has many new improvements that you will enjoy.', 'buddypress' );
-
-		?>
-
-		<h1><?php printf( esc_html__( 'Welcome to BuddyPress %s', 'buddypress' ), self::display_version() ); ?></h1>
-
-		<div class="about-text">
-			<?php
-			if ( self::is_new_install() ) {
-				echo $welcome_text;
-			} else {
-				printf( $welcome_text, self::display_version() );
-			}
-			?>
-		</div>
-
-		<div class="bp-badge"></div>
 
 		<?php
 	}

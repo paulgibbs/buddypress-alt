@@ -363,8 +363,8 @@ function bp_do_activation_redirect() {
 		delete_transient( '_bp_is_new_install' );
 	}
 
-	// Redirect to BuddyPress about page.
-	wp_safe_redirect( add_query_arg( $query_args, bp_get_admin_url( 'index.php' ) ) );
+	// Redirect to dashboard and trigger the Hello screen.
+	wp_safe_redirect( add_query_arg( $query_args, bp_get_admin_url( '?hello=buddypress' ) ) );
 }
 
 /** UI/Styling ****************************************************************/
