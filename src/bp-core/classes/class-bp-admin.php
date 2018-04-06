@@ -37,7 +37,7 @@ class BP_Admin {
 	 * URL to the BuddyPress admin directory.
 	 *
 	 * @since 1.6.0
-	 * @var string $admin_url
+	 * @var string $admin_url.
 	 */
 	public $admin_url = '';
 
