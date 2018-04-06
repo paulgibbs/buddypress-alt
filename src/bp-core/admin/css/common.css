@@ -10,8 +10,7 @@ TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
 1.0 Welcome Screen
 	1.1 Version Badge
-	1.2 About Panel
-		1.2.1 Foobar Feature
+	1.2 ---
 	1.3 Credits Panel
 2.0 Dashicons
 	2.1 Top level menus
@@ -48,17 +47,6 @@ TABLE OF CONTENTS:
 	color: #636363;
 	font-size: 1em;
 }
-
-/*
- * 1.2 About Panel
- */
-
-/*
- * 1.2.1 Foobar Feature
- */
-.buddypress .bp-headline-feature {
-}
-
 
 /*
  * 1.3 Credits Panel

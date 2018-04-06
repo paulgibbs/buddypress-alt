@@ -155,7 +155,7 @@ class BP_Admin {
 		// Add settings.
 		add_action( 'bp_register_admin_settings', array( $this, 'register_admin_settings' ) );
 
-		// Add a link to BuddyPress Hello to the admin bar.
+		// Add a link to BuddyPress Hello in the admin bar.
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_about_link' ), 100 );
 
 		// Add a description of new BuddyPress tools in the available tools page.
@@ -168,6 +168,9 @@ class BP_Admin {
 		// Emails.
 		add_filter( 'manage_' . bp_get_email_post_type() . '_posts_columns',       array( $this, 'emails_register_situation_column' ) );
 		add_action( 'manage_' . bp_get_email_post_type() . '_posts_custom_column', array( $this, 'emails_display_situation_column_data' ), 10, 2 );
+
+		// BuddyPress Hello.
+		add_action( 'admin_footer', array( $this, 'about_screen' ) );
 
 		/* Filters ***********************************************************/
 
@@ -196,15 +199,6 @@ class BP_Admin {
 		if ( ! bp_current_user_can( 'manage_options' ) ) {
 			return;
 		}
-
-		// About.
-		add_dashboard_page(
-			__( 'Welcome to BuddyPress',  'buddypress' ),
-			__( 'Welcome to BuddyPress',  'buddypress' ),
-			$this->capability,
-			'bp-about',
-			array( $this, 'about_screen' )
-		);
 
 		$hooks = array();
 
@@ -538,19 +532,30 @@ class BP_Admin {
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_style( 'bp-admin-common-css' );
+
+		// BuddyPress Hello
+		if ( get_current_screen()->id === 'dashboard' && ! empty( $_GET['hello'] ) && $_GET['hello'] === 'buddypress' ) {
+			wp_enqueue_style( 'bp-hello-css' );
+			wp_enqueue_script( 'bp-hello-js' );
+		}
 	}
 
 	/** About *****************************************************************/
 
 	/**
-	 * Output the about screen.
+	 * Output the BuddyPress Hello template.
 	 *
-	 * @since 1.7.0
+	 * @since 1.7.0 Screen content.
+	 * @since 3.0.0 Now outputs BuddyPress Hello template.
 	 */
 	public function about_screen() {
+		if ( get_current_screen()->id !== 'dashboard' || empty( $_GET['hello'] ) || $_GET['hello'] !== 'buddypress' ) {
+			return;
+		}
 	?>
 
-		<div class="wrap">
+		<div id="bp-hello-wrapper" style="display; none; opacity: 0;">
+			hello world
 		</div>
 
 		<?php
@@ -896,8 +901,13 @@ class BP_Admin {
 				'file'         => "{$url}customizer-controls{$min}.css",
 				'dependencies' => array(),
 			),
-		) );
 
+			// 3.0
+			'bp-hello-css' => array(
+				'file'         => "{$url}hello{$min}.css",
+				'dependencies' => array( 'bp-admin-common-css' ),
+			),
+		) );
 
 		$version = bp_get_version();
 
@@ -932,6 +942,13 @@ class BP_Admin {
 			'bp-customizer-controls' => array(
 				'file'         => "{$url}customizer-controls{$min}.js",
 				'dependencies' => array( 'jquery' ),
+				'footer'       => true,
+			),
+
+			// 3.0
+			'bp-hello-js' => array(
+				'file'         => "{$url}hello{$min}.js",
+				'dependencies' => array(),
 				'footer'       => true,
 			),
 		) );
