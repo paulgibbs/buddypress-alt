@@ -554,8 +554,21 @@ class BP_Admin {
 		}
 	?>
 
-		<div id="bp-hello-wrapper" style="display; none; opacity: 0;">
-			hello world
+		<div id="bp-hello-backdrop" style="display: none;">
+		</div>
+
+		<div id="bp-hello-container" style="display: none;">
+			<div class="bp-hello-header">
+				<p>What's New</p>
+			</div>
+
+			<div class="bp-hello-content">
+				<p>middle</p>
+			</div>
+
+			<div class="bp-hello-footer">
+				<p>footer</p>
+			</div>
 		</div>
 
 		<?php

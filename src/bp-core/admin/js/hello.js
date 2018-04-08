@@ -8,9 +8,9 @@
 	 * Open the BuddyPress Hello modal.
 	 */
 	var bp_hello_open_modal = function() {
-		var wrapper = document.getElementById('bp-hello-wrapper');
-		wrapper.style.display = '';  // Show.
-		wrapper.style.opacity = 1;   // Animation.
+		// Show.
+		document.getElementById('bp-hello-backdrop').style.display = '';
+		document.getElementById('bp-hello-container').style.display = '';
 	};
 
 	// Init Hello after the screen's loaded.
