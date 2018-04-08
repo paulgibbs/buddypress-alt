@@ -14,7 +14,7 @@
 	};
 
 	// Init Hello after the screen's loaded.
-	if ( document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading" ) {
+	if ( document.attachEvent ? document.readyState === 'complete' : document.readyState !== 'loading' ) {
 		bp_hello_open_modal();
 	} else {
 		document.addEventListener( 'DOMContentLoaded', bp_hello_open_modal );
