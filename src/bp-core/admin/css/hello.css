@@ -17,7 +17,9 @@ TABLE OF CONTENTS:
  * 1.0 - Options
  *----------------------------------------------------------------------------*/
 :root {
+	--bp-hello-color-primary: #D34600;
 	--bp-hello-color-secondary: #E5E5E5;
+	--bp-hello-color-link: #000000;
 }
 
 /*
@@ -45,6 +47,15 @@ TABLE OF CONTENTS:
 	/* see #bp-hello-backdrop */
 	background-color: white;
 	border-radius: 3px;
+}
+
+#bp-hello-container a {
+	color: var(--bp-hello-color-primary);
+}
+
+#bp-hello-container a:hover {
+	transition: all .1s ease-in-out;
+	color: black;
 }
 
 .bp-hello-header,
@@ -85,32 +96,59 @@ TABLE OF CONTENTS:
 	background-color: white;
 }
 
-.bp-hello-footer > * {
-	float: left;
-}
-
-.bp-hello-footer:after {
-	clear: right;
-}
-
-.bp-hello-social {
+.bp-hello-social-links,
+.bp-hello-social-cta {
+	width: 49%;
 	display: inline-block;
-	float: right;
+}
+
+.bp-hello-social-cta {
+	text-align: left;
+}
+
+.bp-hello-social-links {
+	text-align: right;
+}
+
+.bp-hello-social-links > * {
+	display: inline;
 }
 
 .bp-hello-social li {
-	display: inline;
+	position: relative;
+	bottom: -5px;
+	margin-bottom: 0;
+	display: inline-block;
 	list-style-type: none;
 }
 
+.bp-hello-social li:last-child a {
+	margin-left: 4px;
+}
+
+.bp-hello-social li a {
+	text-decoration: none;
+}
+
+.bp-hello-social li a.support:before {
+	content: "\f448";
+}
+
+.bp-hello-social li a.twitter:before {
+	content: "\f301";
+}
+
 .bp-hello-social li a:before {
-	content: "\f102";
-	color: var(--bp-hello-color-secondary);
+	color: #23282d;
+	/* wp toolbar */
 	font: 400 20px/1 dashicons;
 	speak: none;
-	padding: 4px 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-image: none !important;
-	top: 2px;
+}
+
+.bp-hello-social li a:hover:before {
+	transition: all .1s ease-in-out;
+	color: var(--bp-hello-color-primary);
 }
