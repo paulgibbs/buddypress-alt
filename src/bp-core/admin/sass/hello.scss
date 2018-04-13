@@ -161,3 +161,34 @@ TABLE OF CONTENTS:
 		}
 	}
 }
+
+.bp-hello-title {
+	text-align: left;
+}
+
+.bp-hello-close {
+	position: absolute;
+	top: 20px;
+	right: 50px;
+	text-align: right;
+
+	a {
+		text-decoration: none;
+
+		&.twitter:before {
+			content: "\f158";
+
+			color: #23282d; /* wp toolbar */
+			font: 400 26px/1 dashicons;
+			speak: none;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			background-image: none !important;
+		}
+
+		&:hover:before {
+			transition: all .1s ease-in-out;
+			color: var(--bp-hello-color-primary);
+		}
+	}
+}

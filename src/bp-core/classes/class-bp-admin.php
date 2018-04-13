@@ -559,7 +559,13 @@ class BP_Admin {
 
 		<div id="bp-hello-container" style="display: none;">
 			<div class="bp-hello-header">
-				<h1><?php echo esc_html( sprintf( __( 'New in BuddyPress %s', 'buddypress' ), bp_get_version() ) ); ?></h1>
+				<div class="bp-hello-close">
+					<a class="twitter" href="#" title="<?php echo esc_html( 'Close pop-up', 'buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Close pop-up', 'buddypress' ); ?></span></a>
+				</div>
+
+				<div class="bp-hello-title">
+					<h1><?php echo esc_html( sprintf( __( 'New in BuddyPress %s', 'buddypress' ), bp_get_version() ) ); ?></h1>
+				</div>
 			</div>
 
 			<div class="bp-hello-content">
