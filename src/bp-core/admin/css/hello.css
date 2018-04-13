@@ -92,8 +92,9 @@ TABLE OF CONTENTS:
 	padding-bottom: 6px;
 	/* same as .bp-hello-header padding-top */
 	border-top: 1px solid var(--bp-hello-color-secondary);
-	border-radius: 3px;
+	border-radius: 0 0 3px 3px;
 	background-color: white;
+	box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.4);
 }
 
 .bp-hello-social-links,
