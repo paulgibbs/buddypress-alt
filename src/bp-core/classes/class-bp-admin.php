@@ -573,7 +573,11 @@ class BP_Admin {
 			</div>
 
 			<div class="bp-hello-footer">
-				<p>footer</p>
+				<p style="">For more updates, check out:</p>
+				<ul class="bp-hello-social">
+					<li><a href="#"><span class="screen-reader-text">Twitter</span></a></li>
+					<li><a href="#"><span class="screen-reader-text">Trac</span></a></li>
+				</ul>
 			</div>
 		</div>
 

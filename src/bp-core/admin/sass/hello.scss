@@ -65,19 +65,6 @@ TABLE OF CONTENTS:
 	}
 }
 
-.bp-hello-footer {
-	// Fixed position above "content" div.
-	position: fixed;
-	left: 25%;
-	right: 25%;
-	bottom: 30px;
-	z-index: 10000; /* see #bp-hello-backdrop */
-
-	border-top: 1px solid var(--bp-hello-color-secondary);
-	border-radius: 3px;
-	background-color: rgb(255, 255, 255);
-}
-
 .bp-hello-content {
 	padding: 15px 50px;
 
@@ -87,5 +74,53 @@ TABLE OF CONTENTS:
 
 	p {
 		font-size: 14px;
+	}
+}
+
+.bp-hello-footer {
+	// Fixed position above "content" div.
+	position: fixed;
+	left: 25%;
+	right: 25%;
+	bottom: 30px;
+	z-index: 10000; /* see #bp-hello-backdrop */
+	padding-bottom: 6px;  /* same as .bp-hello-header padding-top */
+
+	border-top: 1px solid var(--bp-hello-color-secondary);
+	border-radius: 3px;
+	background-color: rgb(255, 255, 255);
+
+	> * {
+		float: left;
+	}
+
+	&:after {
+		clear: right;
+	}
+}
+
+.bp-hello-social {
+	display: inline-block;
+	float: right;
+
+	li {
+		display: inline;
+		list-style-type: none;
+
+		a {
+			&:before {
+				content: "\f102";
+
+				color: var(--bp-hello-color-secondary);
+				font: 400 20px/1 dashicons;
+				speak: none;
+				padding: 4px 0;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				background-image: none !important;
+
+				top: 2px;
+			}
+		}
 	}
 }
