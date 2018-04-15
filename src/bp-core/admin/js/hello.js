@@ -24,7 +24,7 @@
 		if ( modal_close || backdrop_click || ! modal_click ) {
 			modal.parentNode.removeChild( modal );
 			backdrop.parentNode.removeChild( backdrop );
-			window.history.pushState( {}, '', document.location.href.split('?')[0] );
+			window.history.pushState( {}, '', document.location.href.split( '?' )[0] );
 		}
 	}, false );
 

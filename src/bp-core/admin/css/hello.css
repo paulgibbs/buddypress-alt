@@ -91,7 +91,7 @@ TABLE OF CONTENTS:
 	/* see #bp-hello-backdrop */
 	border-radius: 0 0 3px 3px;
 	background-color: white;
-	box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.4);
+	border-top: 1px solid var(--bp-hello-color-secondary);
 }
 
 .bp-hello-social-links,
