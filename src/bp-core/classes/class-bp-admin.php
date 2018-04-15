@@ -560,7 +560,7 @@ class BP_Admin {
 		<div id="bp-hello-container" style="display: none;">
 			<div class="bp-hello-header">
 				<div class="bp-hello-close">
-					<a class="twitter" href="#" title="<?php echo esc_html( 'Close pop-up', 'buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Close pop-up', 'buddypress' ); ?></span></a>
+					<a class="close-modal" href="#" title="<?php echo esc_html( 'Close pop-up', 'buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Close pop-up', 'buddypress' ); ?></span></a>
 				</div>
 
 				<div class="bp-hello-title">
@@ -585,7 +585,11 @@ class BP_Admin {
 				</div>
 
 				<div class="bp-hello-social-links">
-					<p>For news, check out:</p>
+					<p><?php
+					echo esc_html(
+						/* translators: followed by icon-font links to social media. */
+						_e( 'For more, visit:', 'buddypress' )
+					); ?></p>
 					<ul class="bp-hello-social">
 						<li><a class="twitter" href="<?php echo esc_url( 'https://twitter.com/buddypress', 'buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Twitter', 'buddypress' ); ?></span></a></li>
 						<li><a class="support" href="<?php echo esc_url( 'https://buddypress.org/support/', 'buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Support Forums', 'buddypress' ); ?></span></a></li>

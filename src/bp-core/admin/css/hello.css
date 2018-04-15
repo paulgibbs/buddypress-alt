@@ -40,8 +40,8 @@ TABLE OF CONTENTS:
 #bp-hello-container {
 	position: fixed;
 	top: 60px;
-	left: 25%;
-	right: 25%;
+	left: 23%;
+	right: 23%;
 	bottom: 30px;
 	z-index: 10000;
 	/* see #bp-hello-backdrop */
@@ -73,7 +73,7 @@ TABLE OF CONTENTS:
 }
 
 .bp-hello-content {
-	padding: 15px 50px;
+	padding: 0 50px;
 	height: calc(100% - 30px - 60px);
 	overflow-y: auto;
 }
@@ -84,14 +84,11 @@ TABLE OF CONTENTS:
 
 .bp-hello-footer {
 	position: fixed;
-	left: 25%;
-	right: 25%;
+	left: 23%;
+	right: 23%;
 	bottom: 30px;
 	z-index: 10000;
 	/* see #bp-hello-backdrop */
-	padding-bottom: 6px;
-	/* same as .bp-hello-header padding-top */
-	border-top: 1px solid var(--bp-hello-color-secondary);
 	border-radius: 0 0 3px 3px;
 	background-color: white;
 	box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.4);
@@ -169,7 +166,7 @@ TABLE OF CONTENTS:
 	text-decoration: none;
 }
 
-.bp-hello-close a.twitter:before {
+.bp-hello-close a.close-modal:before {
 	content: "\f158";
 	color: #23282d;
 	/* wp toolbar */
