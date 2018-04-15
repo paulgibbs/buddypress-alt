@@ -564,7 +564,9 @@ class BP_Admin {
 				</div>
 
 				<div class="bp-hello-title">
-					<h1><?php echo esc_html( sprintf( __( 'New in BuddyPress %s', 'buddypress' ), bp_get_version() ) ); ?></h1>
+					<h1><?php echo esc_html(
+						sprintf( __( 'New in BuddyPress %s (&ldquo;Apollo&rdquo;)', 'buddypress' ), bp_get_version() )
+					); ?></h1>
 				</div>
 			</div>
 
