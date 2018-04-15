@@ -591,8 +591,8 @@ class BP_Admin {
 						_e( 'For more, visit:', 'buddypress' )
 					); ?></p>
 					<ul class="bp-hello-social">
-						<li><a class="twitter" href="<?php echo esc_url( 'https://twitter.com/buddypress', 'buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Twitter', 'buddypress' ); ?></span></a></li>
-						<li><a class="support" href="<?php echo esc_url( 'https://buddypress.org/support/', 'buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Support Forums', 'buddypress' ); ?></span></a></li>
+						<li><a class="twitter" href="<?php echo esc_url( 'https://twitter.com/buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Twitter', 'buddypress' ); ?></span></a></li>
+						<li><a class="support" href="<?php echo esc_url( 'https://buddypress.org/support/'); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Support Forums' ); ?></span></a></li>
 					</ul>
 				</div>
 			</div>
