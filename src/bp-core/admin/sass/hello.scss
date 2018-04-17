@@ -20,7 +20,6 @@ TABLE OF CONTENTS:
 	4.4 - Content content
 5.0 - Media
 6.0 - Media Queries
-	6.1 - Mobile Large
 	6.2 - Tablet Small
 	6.3 - Tablet Large
 	6.4 - Desktop Small
@@ -51,6 +50,7 @@ TABLE OF CONTENTS:
 	.bp-hello-header {
 
 		h1 {
+			line-height: 1.7rem;
 			font-size: 21px;
 			font-weight: 400;
 		}
@@ -60,7 +60,7 @@ TABLE OF CONTENTS:
 .bp-hello-content {
 
 	p {
-		font-size: 14px;
+		font-size: 16px;
 	}
 }
 
@@ -130,26 +130,21 @@ TABLE OF CONTENTS:
 	right: 0;
 	bottom: 0;
 	z-index: 9998; // >= 9990 for main menu
+
+	display: none;
 }
 
 #bp-hello-container {
 	position: fixed;
-	top: 60px;
-	left: 23%;
-	right: 23%;
-	bottom: 30px;
-	z-index: 10000; // See #bp-hello-backdrop
+	top: 0px;
+	bottom: 80px;
+	z-index: 99999; // >= 99998 for toolbar
 }
 
 /*
  * 3.2 - Modal footer
  */
 .bp-hello-footer {
-	position: fixed; // Fixed position above "content" div.
-	left: 23%;
-	right: 23%;
-	bottom: 30px;
-	z-index: 10000; // See #bp-hello-backdrop
 }
 
 .bp-hello-social-links,
@@ -159,6 +154,10 @@ TABLE OF CONTENTS:
 }
 
 .bp-hello-social-links {
+
+	p {
+		display: none !important;
+	}
 
 	> * {
 		display: inline;
@@ -188,10 +187,10 @@ TABLE OF CONTENTS:
  * 3.4 - Modal content
  */
 .bp-hello-content {
-	padding: 0 50px;
+	padding: 0 25px;
 
 	// Force scrolling.
-	height: calc(100% - 30px - 60px);
+	height: calc(100% - 73px);
 	overflow-y: auto;
 }
 
@@ -209,7 +208,6 @@ TABLE OF CONTENTS:
 
 #bp-hello-container {
 	background-color: rgb(255, 255, 255);
-	border-radius: 3px;
 }
 
 /*
@@ -219,7 +217,7 @@ TABLE OF CONTENTS:
 	border-radius: 0 0 3px 3px;
 	background-color: rgb(255, 255, 255);
 	border-top: 1px solid var(--bp-hello-color-secondary);
-	padding: 6px 50px;
+	padding: 6px 25px;
 }
 
 .bp-hello-social-cta {
@@ -244,7 +242,11 @@ TABLE OF CONTENTS:
  * 4.3 - Header content
  */
 .bp-hello-header {
-	padding: 6px 50px;
+	padding: 6px 25px;
+
+	h1 {
+		width: 80%;
+	}
 }
 
 #bp-hello-container {
@@ -261,7 +263,7 @@ TABLE OF CONTENTS:
 .bp-hello-close {
 	position: absolute;
 	top: 20px;
-	right: 50px;
+	right: 25px;
 	text-align: right;
 
 	a {
@@ -272,3 +274,66 @@ TABLE OF CONTENTS:
 /*
  * 4.4 - Content content
  */
+.bp-hello-content {
+	background-color: rgb(255, 255, 255);
+}
+
+/*
+ * 6.2 - Tablet Small
+ */
+@media only screen and (min-width: 1024px) {
+	#bp-hello-backdrop {
+		display: block;
+	}
+
+	#bp-hello-container {
+		position: fixed;
+		top: 60px;
+		left: 23%;
+		right: 23%;
+		bottom: 30px;
+
+		border-radius: 3px;
+
+		.bp-hello-header {
+
+			h1 {
+				line-height: inherit;
+			}
+		}
+	}
+
+	.bp-hello-header {
+		padding: 6px 50px;
+	}
+
+	.bp-hello-close {
+		right: 50px;
+	}
+
+	.bp-hello-footer {
+		position: fixed; // Fixed position above "content" div.
+		left: 23%;
+		right: 23%;
+		bottom: 30px;
+		z-index: 10000; // See #bp-hello-backdrop
+
+		padding: 6px 50px;
+	}
+
+	.bp-hello-social-links {
+
+		p {
+			display: inline !important;
+		}
+	}
+
+	.bp-hello-content {
+		height: calc(100% - 30px - 60px);
+		padding: 0 50px;
+
+		p {
+			font-size: 14px;
+		}
+	}
+}
