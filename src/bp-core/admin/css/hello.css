@@ -33,6 +33,7 @@ TABLE OF CONTENTS:
 :root {
 	--bp-hello-color-primary: #d34600;
 	--bp-hello-color-secondary: #e5e5e5;
+	--bp-hello-container-size: 15%;
 }
 
 #bp-hello-container a {
@@ -244,8 +245,8 @@ TABLE OF CONTENTS:
 	#bp-hello-container {
 		position: fixed;
 		top: 60px;
-		left: 23%;
-		right: 23%;
+		left: var(--bp-hello-container-size);
+		right: var(--bp-hello-container-size);
 		bottom: 30px;
 		border-radius: 3px;
 	}
@@ -260,8 +261,8 @@ TABLE OF CONTENTS:
 	}
 	.bp-hello-footer {
 		position: fixed;
-		left: 23%;
-		right: 23%;
+		left: var(--bp-hello-container-size);
+		right: var(--bp-hello-container-size);
 		bottom: 30px;
 		z-index: 10000;
 		padding: 6px 30px;
