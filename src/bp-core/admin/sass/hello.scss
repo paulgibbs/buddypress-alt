@@ -215,7 +215,6 @@ TABLE OF CONTENTS:
  * 4.2 - Footer content
  */
 .bp-hello-footer {
-	display: block;
 	border-radius: 0 0 3px 3px;
 	background-color: rgb(255, 255, 255);
 	border-top: 1px solid var(--bp-hello-color-secondary);
@@ -228,6 +227,10 @@ TABLE OF CONTENTS:
 
 .bp-hello-social-links {
 	text-align: right;
+
+	p {
+		display: inline-block !important;
+	}
 }
 
 .bp-hello-social {
@@ -324,8 +327,6 @@ TABLE OF CONTENTS:
 	}
 
 	.bp-hello-footer {
-		display: block;
-		flex-wrap: none;
 		position: fixed; // Fixed position above "content" div.
 		left: var(--bp-hello-container-size);
 		right: var(--bp-hello-container-size);
@@ -333,13 +334,6 @@ TABLE OF CONTENTS:
 		z-index: 10000; // See #bp-hello-backdrop
 
 		padding: 6px 30px;
-	}
-
-	.bp-hello-social-links {
-
-		p {
-			display: inline-block !important;
-		}
 	}
 
 	.bp-hello-content {
