@@ -109,7 +109,7 @@ function bp_nouveau_groups_create_hook( $when = '', $suffix = '' ) {
 function bp_nouveau_group_hook( $when = '', $suffix = '' ) {
 	$hook = array( 'bp' );
 
-	if ( ! $when ) {
+	if ( $when ) {
 		$hook[] = $when;
 	}
 
@@ -228,7 +228,7 @@ function bp_nouveau_group_creation_tabs() {
 					<?php echo (int) $counter; ?> <?php echo esc_html( $step['name'] ); ?>
 				</a>
 			<?php else : ?>
-				<a disabled="disabled"><?php echo (int) $counter; ?>. <?php echo esc_html( $step['name'] ); ?></a>
+				<?php echo (int) $counter; ?>. <?php echo esc_html( $step['name'] ); ?>
 			<?php endif ?>
 		</li>
 			<?php
