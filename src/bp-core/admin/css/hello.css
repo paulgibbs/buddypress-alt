@@ -133,10 +133,6 @@ TABLE OF CONTENTS:
 	flex-basis: 50%;
 }
 
-/*.bp-hello-social-cta {
-	display: inline-block;
-	width: 59%;
-}*/
 .bp-hello-social-links p {
 	display: none !important;
 }
@@ -276,7 +272,7 @@ TABLE OF CONTENTS:
 		right: 30px;
 	}
 	.bp-hello-footer {
-		display: flex;
+		display: block;
 		flex-wrap: none;
 		position: fixed;
 		left: var(--bp-hello-container-size);
