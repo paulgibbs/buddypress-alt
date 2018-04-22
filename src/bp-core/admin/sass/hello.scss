@@ -146,16 +146,16 @@ TABLE OF CONTENTS:
  * 3.2 - Modal footer
  */
 .bp-hello-footer {
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.bp-hello-social-links,
-.bp-hello-social-cta {
-	width: 49%;
-	display: inline-block;
+.bp-hello-social-cta,
+.bp-hello-social-links {
+	flex-basis: 50%;
 }
 
 .bp-hello-social-links {
-
 	p {
 		display: none !important;
 	}
@@ -215,6 +215,7 @@ TABLE OF CONTENTS:
  * 4.2 - Footer content
  */
 .bp-hello-footer {
+	display: block;
 	border-radius: 0 0 3px 3px;
 	background-color: rgb(255, 255, 255);
 	border-top: 1px solid var(--bp-hello-color-secondary);
@@ -323,6 +324,8 @@ TABLE OF CONTENTS:
 	}
 
 	.bp-hello-footer {
+		display: block;
+		flex-wrap: none;
 		position: fixed; // Fixed position above "content" div.
 		left: var(--bp-hello-container-size);
 		right: var(--bp-hello-container-size);
@@ -335,7 +338,7 @@ TABLE OF CONTENTS:
 	.bp-hello-social-links {
 
 		p {
-			display: inline !important;
+			display: inline-block !important;
 		}
 	}
 

@@ -123,12 +123,20 @@ TABLE OF CONTENTS:
 /*
  * 3.2 - Modal footer
  */
-.bp-hello-social-links,
-.bp-hello-social-cta {
-	width: 49%;
-	display: inline-block;
+.bp-hello-footer {
+	display: flex;
+	flex-wrap: wrap;
 }
 
+.bp-hello-social-cta,
+.bp-hello-social-links {
+	flex-basis: 50%;
+}
+
+/*.bp-hello-social-cta {
+	display: inline-block;
+	width: 59%;
+}*/
 .bp-hello-social-links p {
 	display: none !important;
 }
@@ -180,6 +188,7 @@ TABLE OF CONTENTS:
  * 4.2 - Footer content
  */
 .bp-hello-footer {
+	display: block;
 	border-radius: 0 0 3px 3px;
 	background-color: white;
 	border-top: 1px solid var(--bp-hello-color-secondary);
@@ -267,6 +276,8 @@ TABLE OF CONTENTS:
 		right: 30px;
 	}
 	.bp-hello-footer {
+		display: flex;
+		flex-wrap: none;
 		position: fixed;
 		left: var(--bp-hello-container-size);
 		right: var(--bp-hello-container-size);
@@ -275,7 +286,7 @@ TABLE OF CONTENTS:
 		padding: 6px 30px;
 	}
 	.bp-hello-social-links p {
-		display: inline !important;
+		display: inline-block !important;
 	}
 	.bp-hello-content {
 		height: calc(100% - 30px - 60px);
