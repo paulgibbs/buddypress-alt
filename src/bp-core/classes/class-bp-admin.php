@@ -588,7 +588,20 @@ class BP_Admin {
 
 			<div class="bp-hello-footer">
 				<div class="bp-hello-social-cta">
-					<p>hi hi hi</p>
+					<p><?php
+					printf(
+						// translators: e.g. "Built by <a href="">2 volunteers</a>."
+						esc_html__( 'Built by %s.', 'buddypress' ),
+						sprintf(
+							'<a href="%1$s">%2$s</a>',
+							esc_url( bp_get_admin_url( 'admin.php?page=bp-credits' ) ),
+							sprintf(
+								_n( '%s volunteer', '%s volunteers', 117, 'buddypress' ),
+								number_format_i18n( 117 )
+							)
+						)
+					);
+					?></p>
 				</div>
 
 				<div class="bp-hello-social-links">
