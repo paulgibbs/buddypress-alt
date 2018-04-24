@@ -334,6 +334,13 @@ TABLE OF CONTENTS:
 
 	.bp-hello-close {
 		right: 30px;
+
+		a {
+
+			&.close-modal:before {
+				line-height: 0.7;
+			}
+		}
 	}
 
 	.bp-hello-footer {

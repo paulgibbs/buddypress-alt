@@ -281,6 +281,9 @@ TABLE OF CONTENTS:
 	.bp-hello-close {
 		left: 30px;
 	}
+	.bp-hello-close a.close-modal:before {
+		line-height: 0.7;
+	}
 	.bp-hello-footer {
 		position: fixed;
 		right: var(--bp-hello-container-size);
