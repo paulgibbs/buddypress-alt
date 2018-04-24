@@ -116,6 +116,10 @@ TABLE OF CONTENTS:
 	z-index: 99999;
 }
 
+.bp-disable-scroll {
+	overflow: hidden;
+}
+
 /*
  * 3.2 - Modal footer
  */

@@ -63,7 +63,7 @@ TABLE OF CONTENTS:
 	content: "\f158";
 	color: #23282d;
 	/* wp toolbar */
-	font: 400 26px/1 dashicons;
+	font: 400 35px/1 dashicons;
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -73,7 +73,7 @@ TABLE OF CONTENTS:
 .bp-hello-social li a:before {
 	color: #23282d;
 	/* wp toolbar */
-	font: 400 20px/1 dashicons;
+	font: 400 30px/0.6 dashicons;
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -116,6 +116,10 @@ TABLE OF CONTENTS:
 	z-index: 99999;
 }
 
+.bp-disable-scroll {
+	overflow: hidden;
+}
+
 /*
  * 3.2 - Modal footer
  */
@@ -131,12 +135,8 @@ TABLE OF CONTENTS:
 	flex-basis: 50%;
 }
 
-.bp-hello-social-links p {
-	display: none !important;
-}
-
-.bp-hello-social-links > * {
-	display: inline;
+.bp-hello-social-links ul {
+	display: inline-block;
 }
 
 .bp-hello-social li {
@@ -166,6 +166,7 @@ TABLE OF CONTENTS:
 	padding: 0 25px;
 	height: calc(100% - 58px);
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 
 /*------------------------------------------------------------------------------
@@ -203,10 +204,6 @@ TABLE OF CONTENTS:
 
 .bp-hello-social-links {
 	text-align: left;
-}
-
-.bp-hello-social-links p {
-	display: inline-block !important;
 }
 
 .bp-hello-social li a {

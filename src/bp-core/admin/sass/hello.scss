@@ -138,7 +138,7 @@ TABLE OF CONTENTS:
 	z-index: 99999; // >= 99998 for toolbar
 }
 
-.bp-no-scroll {
+.bp-disable-scroll {
 	overflow: hidden;
 }
 
@@ -159,6 +159,7 @@ TABLE OF CONTENTS:
 }
 
 .bp-hello-social-links {
+
 	ul {
 		display: inline-block;
 	}

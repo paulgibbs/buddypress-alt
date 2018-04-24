@@ -589,7 +589,7 @@ class BP_Admin {
 					<p><?php
 					printf(
 						// translators: e.g. "Built by <a href="">2 volunteers</a>."
-						esc_html__( 'Built by %s.', 'buddypress' ),
+						esc_html__( 'Crafted by %s.', 'buddypress' ),
 						sprintf(
 							'<a href="%1$s">%2$s</a>',
 							esc_url( bp_get_admin_url( 'admin.php?page=bp-credits' ) ),
@@ -604,8 +604,27 @@ class BP_Admin {
 
 				<div class="bp-hello-social-links">
 					<ul class="bp-hello-social">
-						<li><a class="twitter" href="<?php echo esc_url( 'https://twitter.com/buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Follow BuddyPress on Twitter', 'buddypress' ); ?></span></a></li>
-						<li><a class="support" href="<?php echo esc_url( 'https://buddypress.org/support/'); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Visit the Support Forums' ); ?></span></a></li>
+						<li>
+							<?php
+							printf(
+								'<a class="twitter" title="%1$s" href="%2$s"><span class="screen-reader-text">%3$s</span></a>',
+								esc_attr( 'Follow BuddyPress on Twitter', 'buddypress' ),
+								esc_url( 'https://twitter.com/buddypress' ),
+								esc_html( 'Follow BuddyPress on Twitter', 'buddypress' )
+							);
+							?>
+						</li>
+
+						<li>
+							<?php
+							printf(
+								'<a class="support" title="%1$s" href="%2$s"><span class="screen-reader-text">%3$s</span></a>',
+								esc_attr( 'Visit the Support Forums', 'buddypress' ),
+								esc_url( 'https://buddypress.org/support/' ),
+								esc_html( 'Visit the Support Forums', 'buddypress' )
+							);
+							?>
+						</li>
 					</ul>
 				</div>
 			</div>
