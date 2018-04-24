@@ -148,6 +148,9 @@ TABLE OF CONTENTS:
 .bp-hello-footer {
 	display: flex;
 	flex-wrap: wrap;
+
+	height: 58px;
+	max-height: 58px;
 }
 
 .bp-hello-social-cta,
@@ -183,6 +186,10 @@ TABLE OF CONTENTS:
 /*
  * 3.3 - Modal header
  */
+.bp-hello-header {
+	height: 58px;
+	max-height: 58px;
+}
 
 /*
  * 3.4 - Modal content
@@ -191,7 +198,7 @@ TABLE OF CONTENTS:
 	padding: 0 25px;
 
 	// Force scrolling.
-	height: calc(100% - 73px);
+	height: calc(100% - 58px);
 	overflow-y: auto;
 }
 
@@ -250,7 +257,7 @@ TABLE OF CONTENTS:
 	padding: 6px 25px;
 
 	h1 {
-		width: 80%;
+		width: calc(100% - 51px);
 	}
 }
 
@@ -320,6 +327,9 @@ TABLE OF CONTENTS:
 
 	.bp-hello-header {
 		padding: 6px 30px;
+
+		height: auto;
+		max-height: inherit;
 	}
 
 	.bp-hello-close {
@@ -334,6 +344,9 @@ TABLE OF CONTENTS:
 		z-index: 10000; // See #bp-hello-backdrop
 
 		padding: 6px 30px;
+
+		height: auto;
+		max-height: inherit;
 	}
 
 	.bp-hello-content {
