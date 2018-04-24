@@ -32,7 +32,6 @@
 			document.body.classList.remove( 'bp-no-scroll' );
 			modal.parentNode.removeChild( modal );
 			backdrop.parentNode.removeChild( backdrop );
-			window.history.pushState( {}, '', document.location.href.split( '?' )[0] );
 		}
 	}, false );
 
@@ -49,7 +48,6 @@
 			document.body.classList.remove( 'bp-no-scroll' );
 			modal.parentNode.removeChild( modal );
 			backdrop.parentNode.removeChild( backdrop );
-			window.history.pushState( {}, '', document.location.href.split( '?' )[0] );
 		}
 	}, false );
 
