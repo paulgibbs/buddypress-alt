@@ -138,6 +138,10 @@ TABLE OF CONTENTS:
 	z-index: 99999; // >= 99998 for toolbar
 }
 
+.bp-no-scroll {
+	overflow: hidden;
+}
+
 /*
  * 3.2 - Modal footer
  */

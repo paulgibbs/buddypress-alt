@@ -8,6 +8,8 @@
 	 * Open the BuddyPress Hello modal.
 	 */
 	var bp_hello_open_modal = function() {
+		document.body.classList.add( 'bp-no-scroll' );
+
 		// Show.
 		document.getElementById( 'bp-hello-backdrop' ).style.display  = '';
 		document.getElementById( 'bp-hello-container' ).style.display = '';
@@ -16,7 +18,7 @@
 	// Close modal if "X" or background is touched.
 	document.addEventListener( 'click', function( event ) {
 		var backdrop = document.getElementById( 'bp-hello-backdrop' ),
-			modal    = document.getElementById( 'bp-hello-container' );
+			modal = document.getElementById( 'bp-hello-container' );
 
 		if ( ! backdrop || ! modal ) {
 			return;
@@ -27,6 +29,7 @@
 			modal_close    = event.target.classList.contains( 'close-modal' );
 
 		if ( modal_close || backdrop_click || ! modal_click ) {
+			document.body.classList.remove( 'bp-no-scroll' );
 			modal.parentNode.removeChild( modal );
 			backdrop.parentNode.removeChild( backdrop );
 			window.history.pushState( {}, '', document.location.href.split( '?' )[0] );
@@ -43,6 +46,7 @@
 				return;
 			}
 
+			document.body.classList.remove( 'bp-no-scroll' );
 			modal.parentNode.removeChild( modal );
 			backdrop.parentNode.removeChild( backdrop );
 			window.history.pushState( {}, '', document.location.href.split( '?' )[0] );
