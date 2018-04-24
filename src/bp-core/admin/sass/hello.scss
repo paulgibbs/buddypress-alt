@@ -226,6 +226,10 @@ TABLE OF CONTENTS:
 	background-color: rgb(255, 255, 255);
 	border-top: 1px solid var(--bp-hello-color-secondary);
 	padding: 6px 25px;
+
+	p {
+		font-size: 15px;
+	}
 }
 
 .bp-hello-social-cta {

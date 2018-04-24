@@ -573,7 +573,7 @@ class BP_Admin {
 			<div class="bp-hello-content">
 				<h2>Meow Meow</h2>
 				<p>Lorem <a href="#">ipsum dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-				<img srcset="https://placekitten.com/1024/576 1024w, http://via.placeholder.com/2048x1152 2048w" src="https://placekitten.com/1024x768" sizes="(max-width: 1023px) 90vw, 65vw" alt="a rad wolf" />
+				<img srcset="https://via.placeholder.com/1024x576 1024w, https://via.placeholder.com/2048x1152 2048w" src="https://placekitten.com/1024x576" sizes="(max-width: 1023px) 90vw, 65vw" alt="a rad wolf" />
 
 				<h2>Meow Meow</h2>
 				<p>Lorem <a href="#">ipsum dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</a>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>

@@ -197,6 +197,10 @@ TABLE OF CONTENTS:
 	padding: 6px 25px;
 }
 
+.bp-hello-footer p {
+	font-size: 15px;
+}
+
 .bp-hello-social-cta {
 	text-align: left;
 }
