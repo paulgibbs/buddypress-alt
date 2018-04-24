@@ -35,7 +35,7 @@
 
 	// Close modal if escape key is presssed.
 	document.addEventListener( 'keyup', function( event ) {
-		if ( event.keyCode == 27 ) {
+		if ( event.keyCode === 27 ) {
 			var backdrop = document.getElementById( 'bp-hello-backdrop' ),
 				modal    = document.getElementById( 'bp-hello-container' );
 

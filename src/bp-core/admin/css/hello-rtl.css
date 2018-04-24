@@ -20,13 +20,8 @@ TABLE OF CONTENTS:
 	4.4 - Content content
 5.0 - Media
 6.0 - Media Queries
-	6.1 - Mobile Large
-	6.2 - Tablet Small
-	6.3 - Tablet Large
-	6.4 - Desktop Small
-	6.5 - Desktop Medium
-	6.6 - Desktop Large
-	6.7 - Desktop X-Large
+	6.2 - Desktop Medium
+	6.3 - Desktop Large
 ------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------
  * 1.0 - Typography and colour
@@ -34,6 +29,7 @@ TABLE OF CONTENTS:
 :root {
 	--bp-hello-color-primary: #d34600;
 	--bp-hello-color-secondary: #e5e5e5;
+	--bp-hello-container-size: 15%;
 }
 
 #bp-hello-container a {
@@ -46,12 +42,13 @@ TABLE OF CONTENTS:
 }
 
 #bp-hello-container .bp-hello-header h1 {
+	line-height: 1.7;
 	font-size: 21px;
 	font-weight: 400;
 }
 
 .bp-hello-content p {
-	font-size: 14px;
+	font-size: 16px;
 }
 
 /*------------------------------------------------------------------------------
@@ -109,32 +106,33 @@ TABLE OF CONTENTS:
 	left: 0;
 	bottom: 0;
 	z-index: 9998;
+	display: none;
 }
 
 #bp-hello-container {
 	position: fixed;
-	top: 60px;
-	right: 23%;
-	left: 23%;
-	bottom: 30px;
-	z-index: 10000;
+	top: 0;
+	bottom: 80px;
+	z-index: 99999;
 }
 
 /*
  * 3.2 - Modal footer
  */
 .bp-hello-footer {
-	position: fixed;
-	right: 23%;
-	left: 23%;
-	bottom: 30px;
-	z-index: 10000;
+	display: flex;
+	flex-wrap: wrap;
+	height: 58px;
+	max-height: 58px;
 }
 
-.bp-hello-social-links,
-.bp-hello-social-cta {
-	width: 49%;
-	display: inline-block;
+.bp-hello-social-cta,
+.bp-hello-social-links {
+	flex-basis: 50%;
+}
+
+.bp-hello-social-links p {
+	display: none !important;
 }
 
 .bp-hello-social-links > * {
@@ -156,12 +154,17 @@ TABLE OF CONTENTS:
 /*
  * 3.3 - Modal header
  */
+.bp-hello-header {
+	height: 58px;
+	max-height: 58px;
+}
+
 /*
  * 3.4 - Modal content
  */
 .bp-hello-content {
-	padding: 0 50px;
-	height: calc(100% - 30px - 60px);
+	padding: 0 25px;
+	height: calc(100% - 58px);
 	overflow-y: auto;
 }
 
@@ -178,7 +181,6 @@ TABLE OF CONTENTS:
 
 #bp-hello-container {
 	background-color: white;
-	border-radius: 3px;
 }
 
 /*
@@ -188,7 +190,11 @@ TABLE OF CONTENTS:
 	border-radius: 0 0 3px 3px;
 	background-color: white;
 	border-top: 1px solid var(--bp-hello-color-secondary);
-	padding: 6px 50px;
+	padding: 6px 25px;
+}
+
+.bp-hello-footer p {
+	font-size: 15px;
 }
 
 .bp-hello-social-cta {
@@ -199,6 +205,10 @@ TABLE OF CONTENTS:
 	text-align: left;
 }
 
+.bp-hello-social-links p {
+	display: inline-block !important;
+}
+
 .bp-hello-social li a {
 	text-decoration: none;
 }
@@ -207,7 +217,11 @@ TABLE OF CONTENTS:
  * 4.3 - Header content
  */
 .bp-hello-header {
-	padding: 6px 50px;
+	padding: 6px 25px;
+}
+
+.bp-hello-header h1 {
+	width: calc(100% - 51px);
 }
 
 #bp-hello-container .bp-hello-header {
@@ -221,7 +235,7 @@ TABLE OF CONTENTS:
 .bp-hello-close {
 	position: absolute;
 	top: 20px;
-	left: 50px;
+	left: 25px;
 	text-align: left;
 }
 
@@ -232,3 +246,70 @@ TABLE OF CONTENTS:
 /*
  * 4.4 - Content content
  */
+.bp-hello-content {
+	background-color: white;
+}
+
+/*------------------------------------------------------------------------------
+ * 5.0 - Media
+ *----------------------------------------------------------------------------*/
+.bp-hello-content img {
+	border-radius: 2px;
+	max-width: 100%;
+}
+
+/*
+ * 6.2 - Desktop Medium
+ */
+@media only screen and (min-width: 1024px) {
+	#bp-hello-backdrop {
+		display: block;
+	}
+	#bp-hello-container {
+		position: fixed;
+		top: 60px;
+		right: var(--bp-hello-container-size);
+		left: var(--bp-hello-container-size);
+		bottom: 30px;
+		border-radius: 3px;
+	}
+	#bp-hello-container .bp-hello-header h1 {
+		line-height: inherit;
+	}
+	.bp-hello-header {
+		padding: 6px 30px;
+		height: auto;
+		max-height: inherit;
+	}
+	.bp-hello-close {
+		left: 30px;
+	}
+	.bp-hello-footer {
+		position: fixed;
+		right: var(--bp-hello-container-size);
+		left: var(--bp-hello-container-size);
+		bottom: 30px;
+		z-index: 10000;
+		padding: 6px 30px;
+		height: auto;
+		max-height: inherit;
+	}
+	.bp-hello-content {
+		height: calc(100% - 30px - 60px);
+		padding: 0 30px;
+	}
+	.bp-hello-content p {
+		font-size: 14px;
+	}
+}
+
+/**
+ * 6.3 - Desktop Large
+ */
+@media screen and (min-width: 1280px) {
+	#bp-hello-container,
+	.bp-hello-footer {
+		right: calc((100% - 896px) / 2);
+		left: calc((100% - 896px) / 2);
+	}
+}

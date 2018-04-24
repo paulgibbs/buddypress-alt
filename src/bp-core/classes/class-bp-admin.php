@@ -501,7 +501,7 @@ class BP_Admin {
 		// Add a few links to the existing links array.
 		return array_merge( $links, array(
 			'settings' => '<a href="' . esc_url( add_query_arg( array( 'page' => 'bp-components' ), bp_get_admin_url( $this->settings_page ) ) ) . '">' . esc_html__( 'Settings', 'buddypress' ) . '</a>',
-			'about'    => '<a href="' . esc_url( add_query_arg( array( 'page' => 'bp-about'      ), bp_get_admin_url( 'index.php'          ) ) ) . '">' . esc_html__( 'About',    'buddypress' ) . '</a>'
+			'about'    => '<a href="' . esc_url( bp_get_admin_url( '?hello=buddypress' ) ) . '">' . esc_html_x( 'Hello, BuddyPress!', 'Colloquial alternative to "learn about BuddyPress"', 'buddypress' ) . '</a>'
 		) );
 	}
 
@@ -564,9 +564,7 @@ class BP_Admin {
 				</div>
 
 				<div class="bp-hello-title">
-					<h1><?php echo esc_html(
-						sprintf( __( 'New in BuddyPress %s (&ldquo;Apollo&rdquo;)', 'buddypress' ), bp_get_version() )
-					); ?></h1>
+					<h1><?php echo esc_html( _x( 'New in BuddyPress', 'page title', 'buddypress' ) ); ?></h1>
 				</div>
 			</div>
 
@@ -605,14 +603,9 @@ class BP_Admin {
 				</div>
 
 				<div class="bp-hello-social-links">
-					<p><?php
-					echo esc_html(
-						/* translators: followed by icon-font links to social media. */
-						_e( 'For more, visit:', 'buddypress' )
-					); ?></p>
 					<ul class="bp-hello-social">
-						<li><a class="twitter" href="<?php echo esc_url( 'https://twitter.com/buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Twitter', 'buddypress' ); ?></span></a></li>
-						<li><a class="support" href="<?php echo esc_url( 'https://buddypress.org/support/'); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Support Forums' ); ?></span></a></li>
+						<li><a class="twitter" href="<?php echo esc_url( 'https://twitter.com/buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Follow BuddyPress on Twitter', 'buddypress' ); ?></span></a></li>
+						<li><a class="support" href="<?php echo esc_url( 'https://buddypress.org/support/'); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Visit the Support Forums' ); ?></span></a></li>
 					</ul>
 				</div>
 			</div>

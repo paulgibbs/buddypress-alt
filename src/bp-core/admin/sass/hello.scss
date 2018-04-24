@@ -20,12 +20,8 @@ TABLE OF CONTENTS:
 	4.4 - Content content
 5.0 - Media
 6.0 - Media Queries
-	6.2 - Tablet Small
-	6.3 - Tablet Large
-	6.4 - Desktop Small
-	6.5 - Desktop Medium
-	6.6 - Desktop Large
-	6.7 - Desktop X-Large
+	6.2 - Desktop Medium
+	6.3 - Desktop Large
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -51,7 +47,7 @@ TABLE OF CONTENTS:
 	.bp-hello-header {
 
 		h1 {
-			line-height: 1.7rem;
+			line-height: 1.7;
 			font-size: 21px;
 			font-weight: 400;
 		}
@@ -80,7 +76,7 @@ TABLE OF CONTENTS:
 		&.close-modal:before {
 			content: "\f158";
 			color: #23282d; /* wp toolbar */
-			font: 400 26px/1 dashicons;
+			font: 400 35px/1 dashicons;
 			speak: none;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
@@ -95,7 +91,7 @@ TABLE OF CONTENTS:
 
 		&:before {
 			color: #23282d; /* wp toolbar */
-			font: 400 20px/1 dashicons;
+			font: 400 30px/0.6 dashicons;
 			speak: none;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
@@ -137,7 +133,7 @@ TABLE OF CONTENTS:
 
 #bp-hello-container {
 	position: fixed;
-	top: 0px;
+	top: 0;
 	bottom: 80px;
 	z-index: 99999; // >= 99998 for toolbar
 }
@@ -159,12 +155,8 @@ TABLE OF CONTENTS:
 }
 
 .bp-hello-social-links {
-	p {
-		display: none !important;
-	}
-
-	> * {
-		display: inline;
+	ul {
+		display: inline-block;
 	}
 }
 
@@ -200,6 +192,7 @@ TABLE OF CONTENTS:
 	// Force scrolling.
 	height: calc(100% - 58px);
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 
 /*------------------------------------------------------------------------------
@@ -238,10 +231,6 @@ TABLE OF CONTENTS:
 
 .bp-hello-social-links {
 	text-align: right;
-
-	p {
-		display: inline-block !important;
-	}
 }
 
 .bp-hello-social {
@@ -301,13 +290,15 @@ TABLE OF CONTENTS:
 
 	img {
 		border-radius: 2px;
+		max-width: 100%;
 	}
 }
 
 /*
- * 6.2 - Tablet Small
+ * 6.2 - Desktop Medium
  */
 @media only screen and (min-width: 1024px) {
+
 	#bp-hello-backdrop {
 		display: block;
 	}
@@ -360,5 +351,17 @@ TABLE OF CONTENTS:
 		p {
 			font-size: 14px;
 		}
+	}
+}
+
+/**
+ * 6.3 - Desktop Large
+ */
+@media screen and (min-width: 1280px) {
+
+	#bp-hello-container,
+	.bp-hello-footer {
+		left: calc((100% - 896px) / 2);
+		right: calc((100% - 896px) / 2);
 	}
 }
