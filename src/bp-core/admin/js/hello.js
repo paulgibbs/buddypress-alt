@@ -31,10 +31,9 @@
 
 	// Close modal if "X" or background is touched.
 	document.addEventListener( 'click', function( event ) {
-		var backdrop = document.getElementById( 'bp-hello-backdrop' ),
-			modal = document.getElementById( 'bp-hello-container' );
+		var backdrop = document.getElementById( 'bp-hello-backdrop' );
 
-		if ( ! backdrop || ! modal ) {
+		if ( ! backdrop || ! document.getElementById( 'bp-hello-container' ) ) {
 			return;
 		}
 
