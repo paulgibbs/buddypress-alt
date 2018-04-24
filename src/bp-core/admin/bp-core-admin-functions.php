@@ -357,7 +357,7 @@ function bp_do_activation_redirect() {
 		return;
 	}
 
-	$query_args = array( 'page' => 'bp-about' );
+	$query_args = array();
 	if ( get_transient( '_bp_is_new_install' ) ) {
 		$query_args['is_new_install'] = '1';
 		delete_transient( '_bp_is_new_install' );
