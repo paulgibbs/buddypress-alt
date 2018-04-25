@@ -564,23 +564,23 @@ class BP_Admin {
 				</div>
 
 				<div class="bp-hello-title">
-					<h1><?php echo esc_html( _x( 'New in BuddyPress', 'page title', 'buddypress' ) ); ?></h1>
+					<h1><?php echo esc_html( _x( 'New in BuddyPress', 'section heading', 'buddypress' ) ); ?></h1>
 				</div>
 			</div>
 
 			<div class="bp-hello-content">
-				<h2>Meow Meow</h2>
+				<h2><?php echo esc_html( _x( "Say hello to &ldquo;Nouveau&rdquo;!", 'section heading', 'buddypress' ) ); ?></h2>
 				<p>Lorem <a href="#">ipsum dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
 				<img srcset="https://via.placeholder.com/1024x576 1024w, https://via.placeholder.com/2048x1152 2048w" src="https://placekitten.com/1024x576" sizes="(max-width: 1023px) 90vw, 65vw" alt="a rad wolf" />
 
-				<h2>Meow Meow</h2>
-				<p>Lorem <a href="#">ipsum dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</a>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<h2><?php echo esc_html( _x( 'Control site-wide notices from your dashboard', 'section heading', 'buddypress' ) ); ?></h2>
+				<p>Hi</p>
 
-				<h2>Meow Meow</h2>
-				<p>Lorem <a href="#">ipsum dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</a>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<h2><?php echo esc_html( _x( "New profile field type: telephone numbers", 'section heading', 'buddypress' ) ); ?></h2>
+				<p>Hi</p>
 
-				<h2>Meow Meow</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<h2><?php echo esc_html( _x( "BudydPress: better, faster, stronger", 'section heading', 'buddypress' ) ); ?></h2>
+				<p>Hi</p>
 				<br /><br />
 			</div>
 
