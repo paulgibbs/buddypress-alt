@@ -569,7 +569,7 @@ class BP_Admin {
 			</div>
 
 			<div class="bp-hello-content">
-				<h2><?php echo esc_html( __( "Say hello to &ldquo;Nouveau&rdquo;!", 'buddypress' ) ); ?></h2>
+				<h2><?php echo esc_html( __( 'Say hello to &ldquo;Nouveau&rdquo;!', 'buddypress' ) ); ?></h2>
 				<p>
 					<?php
 					printf(
@@ -603,11 +603,22 @@ class BP_Admin {
 				</p>
 				<?php endif; ?>
 
-				<h2><?php echo esc_html( __( "New profile field type: telephone numbers", 'buddypress' ) ); ?></h2>
+				<h2><?php echo esc_html( __( 'New profile field type: telephone numbers', 'buddypress' ) ); ?></h2>
 				<p><?php echo esc_html( 'A new telephone number field type has been added to the Extended Profiles component, with support for all international number formats. With a modern web browser, your members can use this field type to touch-to-dial a number directly.', 'buddypress' ); ?></p>
 
-				<h2><?php echo esc_html( __( "BuddyPress: better, faster, stronger", 'buddypress' ) ); ?></h2>
-				<p>Hi</p>
+				<h2><?php echo esc_html( __( "BuddyPress: leaner, faster, stronger", 'buddypress' ) ); ?></h2>
+				<p><?php echo esc_html( 'With every BuddyPress release, we strive to make performance improvements alongside new features. This release is no exeception.', 'buddypress' ); ?></p>
+				<p>
+					<?php
+					printf(
+						__( 'Most notably, the <a href="%s">Legacy Forums component has been removed</a> after 9 years of service. If your site was using Legacy Forums, you need to <a href="%s">migrate to the bbPress plugin</a>.', 'buddypress' ),
+						esc_url( 'https://bpdevel.wordpress.com/2017/12/07/legacy-forums-support-will-be/' ),
+						esc_url( 'https://codex.buddypress.org/getting-started/guides/migrating-from-old-forums-to-bbpress-2/' )
+					);
+					?>
+				<p><?php echo esc_html( 'Memory use has been optimised; within active components, we now only load each individual file of code when it\'s needed.', 'buddypress' ); ?></p>
+				</p>
+
 				<br /><br />
 			</div>
 
