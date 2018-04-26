@@ -569,37 +569,59 @@ class BP_Admin {
 			</div>
 
 			<div class="bp-hello-content">
-				<h2><?php echo esc_html( _x( "Say hello to &ldquo;Nouveau&rdquo;!", 'section heading', 'buddypress' ) ); ?></h2>
-				<p>Lorem <a href="#">ipsum dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+				<h2><?php echo esc_html( __( "Say hello to &ldquo;Nouveau&rdquo;!", 'buddypress' ) ); ?></h2>
+				<p>
+					<?php
+					printf(
+						__( 'A bold reimagining of our legacy templates, Nouveau is our celebration of <a href="%s">10 years of BuddyPress</a>! Nouveau delivers modern markup with fresh JavaScript-powered templates, and full integration with WordPress\' Customizer, allowing more out-of-the-box control of your BuddyPress content than ever before.', 'buddypress' ),
+						esc_url( 'https://buddypress.org/2018/03/10-years/' )
+					);
+					?>
+				</p>
+				<p><?php echo esc_html( 'Nouveau provides vertical and horizontal layout options for BuddyPress navigation, and for the component directories, you can choose between a grid layout, and a classic flat list.', 'buddypress' ); ?></p>
+				<p>
+					<?php
+					printf(
+						__( 'Nouveau is fully compatible with WordPress. Existing BuddyPress themes have been written for our legacy template pack, and until they are updated, resolve any compatibility issues by choosing the legacy template pack option in <a href="%s">Settings &gt; BuddyPress</a>.', 'buddypress' ),
+						esc_url( bp_get_admin_url( 'admin.php?page=bp-settings' ) )
+					);
+					?>
+				</p>
 				<img srcset="https://via.placeholder.com/1024x576 1024w, https://via.placeholder.com/2048x1152 2048w" src="https://placekitten.com/1024x576" sizes="(max-width: 1023px) 90vw, 65vw" alt="a rad wolf" />
 
 				<h2><?php echo esc_html( _x( 'Control site-wide notices from your dashboard', 'section heading', 'buddypress' ) ); ?></h2>
-				<p>Hi</p>
+				<p><?php echo esc_html( 'Site Notices are a feature within the Private Messaging component that allows community managers to share important messages with all members of their community. With Nouveau, the management interface for Site Notices has been removed from the front-end theme templates.', 'buddypress' ); ?></p>
 
-				<h2><?php echo esc_html( _x( "New profile field type: telephone numbers", 'section heading', 'buddypress' ) ); ?></h2>
-				<p>Hi</p>
+				<?php if ( bp_is_active( 'messages' ) ) : ?>
+				<p>
+					<?php
+					printf(
+						__( 'Explore the new management interface at <a href="%s">Users &gt; Site Notices</a>.', 'buddypress' ),
+						esc_url( bp_get_admin_url( 'users.php?page=bp-notices' ) )
+					);
+					?>
+				</p>
+				<?php endif; ?>
 
-				<h2><?php echo esc_html( _x( "BudydPress: better, faster, stronger", 'section heading', 'buddypress' ) ); ?></h2>
+				<h2><?php echo esc_html( __( "New profile field type: telephone numbers", 'buddypress' ) ); ?></h2>
+				<p><?php echo esc_html( 'A new telephone number field type has been added to the Extended Profiles component, with support for all international number formats. With a modern web browser, your members can use this field type to touch-to-dial a number directly.', 'buddypress' ); ?></p>
+
+				<h2><?php echo esc_html( __( "BuddyPress: better, faster, stronger", 'buddypress' ) ); ?></h2>
 				<p>Hi</p>
 				<br /><br />
 			</div>
 
 			<div class="bp-hello-footer">
 				<div class="bp-hello-social-cta">
-					<p><?php
-					printf(
-						// translators: e.g. "Built by <a href="">2 volunteers</a>."
-						esc_html__( 'Crafted by %s.', 'buddypress' ),
-						sprintf(
-							'<a href="%1$s">%2$s</a>',
+					<p>
+						<?php
+						printf(
+							_n( 'Built by <a href="%s">%s volunteer</a>.', 'Crafted by <a href="%s">%s volunteers</a>.', 100, 'buddypress' ),
 							esc_url( bp_get_admin_url( 'admin.php?page=bp-credits' ) ),
-							sprintf(
-								_n( '%s volunteer', '%s volunteers', 117, 'buddypress' ),
-								number_format_i18n( 117 )
-							)
-						)
-					);
-					?></p>
+							number_format_i18n( 100 )
+						);
+						?>
+					</p>
 				</div>
 
 				<div class="bp-hello-social-links">
