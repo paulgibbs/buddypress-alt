@@ -925,6 +925,7 @@ body.buddypress article.page > .entry-header .entry-title {
 .bp-list li .item-meta {
 	color: #737373;
 	font-size: 12px;
+	margin-bottom: 10px;
 	margin-top: 10px;
 }
 
@@ -1019,12 +1020,18 @@ body.buddypress article.page > .entry-header .entry-title {
 	margin-top: 0;
 }
 
-.friends-request-list .item-title {
+.friends-list {
+	list-style-type: none;
+}
+
+.friends-request-list .item-title,
+.membership-requests-list .item-title {
 	text-align: center;
 }
 
 @media screen and (min-width: 46.8em) {
-	.friends-request-list li {
+	.friends-request-list li,
+	.membership-requests-list li {
 		display: -webkit-flex;
 		display: -moz-flex;
 		display: -ms-flex;
@@ -1036,19 +1043,26 @@ body.buddypress article.page > .entry-header .entry-title {
 		-o-flex-flow: row nowrap;
 		flex-flow: row nowrap;
 	}
-	.friends-request-list li .item {
+	.friends-request-list li .item,
+	.membership-requests-list li .item {
 		-webkit-flex: 1 1 auto;
 		-moz-flex: 1 1 auto;
 		-ms-flex: 1 1 auto;
 		-o-flex: 1 1 auto;
 		flex: 1 1 auto;
 	}
-	.friends-request-list li .action {
+	.friends-request-list li .action,
+	.membership-requests-list li .action {
 		text-align: right;
 	}
-	.friends-request-list li .item-title {
+	.friends-request-list li .item-title,
+	.membership-requests-list li .item-title {
 		font-size: 22px;
 		text-align: left;
+	}
+	.friends-request-list li .item-title h3,
+	.membership-requests-list li .item-title h3 {
+		margin: 0;
 	}
 }
 
@@ -4486,6 +4500,38 @@ body.no-js .buddypress #messages-bulk-management #select-all-messages {
 	overflow-wrap: break-word;
 }
 
+.buddypress.widget .activity-list {
+	padding: 0;
+}
+
+.buddypress.widget .activity-list blockquote {
+	margin: 0 0 1.5em;
+	overflow: visible;
+	padding: 0 0 0.75em 0.75em;
+}
+
+.buddypress.widget .activity-list img {
+	margin-bottom: 0.5em;
+}
+
+.buddypress.widget .avatar-block {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-moz-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	-o-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+.buddypress.widget .avatar-block img {
+	margin-bottom: 1em;
+	margin-right: 1em;
+}
+
 .widget-area .buddypress.widget ul.item-list li {
 	-webkit-flex: 0 1 46%;
 	-moz-flex: 0 1 46%;
@@ -4659,6 +4705,7 @@ body.no-js .buddypress #messages-bulk-management #select-all-messages {
 	}
 }
 
+.activity-list .bp-tooltip:after,
 .activity-meta-action .bp-tooltip:after,
 .notification-actions .bp-tooltip:after,
 .participants-list .bp-tooltip:after {
