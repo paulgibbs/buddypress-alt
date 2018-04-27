@@ -560,16 +560,16 @@ class BP_Admin {
 		<div id="bp-hello-container" style="display: none;">
 			<div class="bp-hello-header">
 				<div class="bp-hello-close">
-					<a class="close-modal" href="#" title="<?php echo esc_html( 'Close pop-up', 'buddypress' ); ?>"><span class="screen-reader-text"><?php echo esc_html( 'Close pop-up', 'buddypress' ); ?></span></a>
+					<a class="close-modal" href="#" title="<?php echo esc_attr( 'Close pop-up', 'buddypress' ); ?>"><span class="screen-reader-text"><?php esc_html_e( 'Close pop-up', 'buddypress' ); ?></span></a>
 				</div>
 
 				<div class="bp-hello-title">
-					<h1><?php echo esc_html( _x( 'New in BuddyPress', 'section heading', 'buddypress' ) ); ?></h1>
+					<h1><?php esc_html_e( _x( 'New in BuddyPress', 'section heading', 'buddypress' ) ); ?></h1>
 				</div>
 			</div>
 
 			<div class="bp-hello-content">
-				<h2><?php echo esc_html( __( 'Say hello to &ldquo;Nouveau&rdquo;!', 'buddypress' ) ); ?></h2>
+				<h2><?php esc_html_e( __( 'Say hello to &ldquo;Nouveau&rdquo;!', 'buddypress' ) ); ?></h2>
 				<p>
 					<?php
 					printf(
@@ -578,7 +578,7 @@ class BP_Admin {
 					);
 					?>
 				</p>
-				<p><?php echo esc_html( 'Nouveau provides vertical and horizontal layout options for BuddyPress navigation, and for the component directories, you can choose between a grid layout, and a classic flat list.', 'buddypress' ); ?></p>
+				<p><?php esc_html_e( 'Nouveau provides vertical and horizontal layout options for BuddyPress navigation, and for the component directories, you can choose between a grid layout, and a classic flat list.', 'buddypress' ); ?></p>
 				<p>
 					<?php
 					printf(
@@ -589,8 +589,8 @@ class BP_Admin {
 				</p>
 				<img srcset="https://via.placeholder.com/1024x576 1024w, https://via.placeholder.com/2048x1152 2048w" src="https://placekitten.com/1024x576" sizes="(max-width: 1023px) 90vw, 65vw" alt="a rad wolf" />
 
-				<h2><?php echo esc_html( _x( 'Control site-wide notices from your dashboard', 'section heading', 'buddypress' ) ); ?></h2>
-				<p><?php echo esc_html( 'Site Notices are a feature within the Private Messaging component that allows community managers to share important messages with all members of their community. With Nouveau, the management interface for Site Notices has been removed from the front-end theme templates.', 'buddypress' ); ?></p>
+				<h2><?php esc_html_e( _x( 'Control site-wide notices from your dashboard', 'section heading', 'buddypress' ) ); ?></h2>
+				<p><?php esc_html_e( 'Site Notices are a feature within the Private Messaging component that allows community managers to share important messages with all members of their community. With Nouveau, the management interface for Site Notices has been removed from the front-end theme templates.', 'buddypress' ); ?></p>
 
 				<?php if ( bp_is_active( 'messages' ) ) : ?>
 				<p>
@@ -603,11 +603,11 @@ class BP_Admin {
 				</p>
 				<?php endif; ?>
 
-				<h2><?php echo esc_html( __( 'New profile field type: telephone numbers', 'buddypress' ) ); ?></h2>
-				<p><?php echo esc_html( 'A new telephone number field type has been added to the Extended Profiles component, with support for all international number formats. With a modern web browser, your members can use this field type to touch-to-dial a number directly.', 'buddypress' ); ?></p>
+				<h2><?php esc_html_e( __( 'New profile field type: telephone numbers', 'buddypress' ) ); ?></h2>
+				<p><?php esc_html_e( 'A new telephone number field type has been added to the Extended Profiles component, with support for all international number formats. With a modern web browser, your members can use this field type to touch-to-dial a number directly.', 'buddypress' ); ?></p>
 
-				<h2><?php echo esc_html( __( "BuddyPress: leaner, faster, stronger", 'buddypress' ) ); ?></h2>
-				<p><?php echo esc_html( 'With every BuddyPress release, we strive to make performance improvements alongside new features. This release is no exeception.', 'buddypress' ); ?></p>
+				<h2><?php esc_html_e( __( "BuddyPress: leaner, faster, stronger", 'buddypress' ) ); ?></h2>
+				<p><?php esc_html_e( 'With every BuddyPress version, we strive to make performance improvements alongside new features and fixes; this version is no exception. Memory use has been optimised &mdash; within active components, we now only load each individual code file when it\'s needed, not before.', 'buddypress' ); ?></p>
 				<p>
 					<?php
 					printf(
@@ -616,8 +616,27 @@ class BP_Admin {
 						esc_url( 'https://codex.buddypress.org/getting-started/guides/migrating-from-old-forums-to-bbpress-2/' )
 					);
 					?>
-				<p><?php echo esc_html( 'Memory use has been optimised; within active components, we now only load each individual file of code when it\'s needed.', 'buddypress' ); ?></p>
 				</p>
+
+				<p><em>
+					<?php
+					printf(
+						__( 'To read the full list of features, fixes, and changes in this version of BuddyPress, <a href="%s">visit Trac</a>.', 'buddypress' ),
+						esc_url( 'https://buddypress.trac.wordpress.org/query?group=status&milestone=3.0' )
+					);
+					?>
+				</em></p>
+
+				<h2><?php esc_html_e( _x( 'Your feedback', 'screen heading', 'buddypress' ) ); ?></h2>
+				<p>
+					<?php
+					printf(
+						__( ' How are you using BuddyPress? Recieving your feedback and suggestions for future versions of BuddyPress genuinely motivates and encourages our contributors. Please <a href="%s">share your feedback</a> about this version of BuddyPress on our website. ', 'buddypress' ),
+						esc_url( 'https://buddypress.org/support/' )
+					);
+					?>
+				</p>
+				<p><?php esc_html_e( 'Thank you for using BuddyPress! 😊', 'buddypress' ); ?></p>
 
 				<br /><br />
 			</div>
